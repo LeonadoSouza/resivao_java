@@ -1,10 +1,10 @@
-package projeto;
+package univates;
 
 /*
    autor: Jonas Dhein
 */
 
-public class RevisaoJava {
+public class ClassePrincipal {
 
     //método de inicialização da classe
     public static void main(String[] args) {

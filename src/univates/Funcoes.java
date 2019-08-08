@@ -1,4 +1,4 @@
-/package projeto;
+package univates;
 
 /*
 autor: Jonas Dhein
