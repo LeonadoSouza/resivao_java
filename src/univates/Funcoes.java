@@ -1,5 +1,7 @@
 package univates;
 
+import java.util.Random;
+
 /*
 autor: Jonas Dhein
 */
@@ -61,8 +63,10 @@ public class Funcoes {
     public static String sortearNumeros(int quantidade, int maximo){
         String resultado = "";
         int numero = 0;
+        Random aleatorio = new Random();
         for(int i = 0; i < quantidade; i++){
-            numero = (int) (Math.random() * maximo) + 1;
+         //   numero = (int) (Math.random() * maximo) + 1;
+         numero = aleatorio.nextInt(maximo) + 1;
             resultado += numero + ",";
         }
         
