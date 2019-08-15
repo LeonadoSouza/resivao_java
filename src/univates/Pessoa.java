@@ -60,7 +60,8 @@ public class Pessoa {
     
     @Override
     public String toString(){
-        return ("código: "+ this.codigo + "\n nome: " + this.nome + "\n endereço: " + this.endereco + "\n telefone: " + this.telefone + "\n valor da conta: " + this.valorConta);  
+        return ("código: "+ this.codigo + "\n nome: " + this.nome + "\n endereço: " + this.endereco +
+                "\n telefone: " + this.telefone + "\n valor da conta: " + this.valorConta);  
     }
     
     
