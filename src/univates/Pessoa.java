@@ -15,6 +15,7 @@ public class Pessoa {
     private String endereco;
     private String telefone;
     private double valorConta;
+    private String campoNovo;
 
     public int getCodigo() {
         return codigo;
@@ -55,13 +56,33 @@ public class Pessoa {
     public void setValorConta(double valorConta) {
         this.valorConta = valorConta;
     }
+
+    public String getCampoNovo() {
+        return campoNovo;
+    }
+
+    public void setCampoNovo(String campoNovo) {
+        this.campoNovo = campoNovo;
+    }
     
+   public boolean credito(double valorTransferencia){
+        if(valorTransferencia <= this.valorConta){
+            this.valorConta -= valorTransferencia;
+            System.out.println("Transferência realizada.");
+            return true;
+        }else{
+            System.out.println("Transferência não realizada.");
+            return false;
+        }
+    }
     
+    public void debito(double valor){
+        this.valorConta += valor;
+    }
     
     @Override
     public String toString(){
-        return ("código: "+ this.codigo + "\n nome: " + this.nome + "\n endereço: " + this.endereco +
-                "\n telefone: " + this.telefone + "\n valor da conta: " + this.valorConta);  
+        return ("\n nome: " + this.nome + "\n valor da conta: " + this.valorConta);  
     }
     
     
