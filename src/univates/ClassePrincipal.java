@@ -87,19 +87,36 @@ public class ClassePrincipal {
         Pessoa pessoa2 = new Pessoa();
 
         pessoa1.setCodigo(1);
-        pessoa1.setEndereco("Lajeado");
         pessoa1.setNome("joão");
-        pessoa1.setTelefone("991998002");
+        pessoa1.setEndereco("Lajeado");
+        pessoa1.setTelefone("190");
         pessoa1.setValorConta(500);
 
         pessoa2.setCodigo(2);
-        pessoa2.setEndereco("Taquari");
         pessoa2.setNome("Mario");
-        pessoa2.setTelefone("991202830");
-        pessoa2.setValorConta(400);
+        pessoa2.setEndereco("Taquari");
+        pessoa2.setTelefone("181");
+        pessoa2.setValorConta(1000);
                 
+        System.out.println("Saldo Inicial:");
         System.out.println(pessoa1);
+        System.out.println("-------------------");
         System.out.println(pessoa2);
+        System.out.println("-------------------");
+        
+        double valorTransferencia = 100;
+        System.out.println("Valor da Transferência: R$ " + valorTransferencia);
+        
+        if(pessoa1.credito(valorTransferencia) == true){
+            pessoa2.debito(valorTransferencia);
+        }
+        
+        System.out.println("Saldo Final:");
+        System.out.println(pessoa1);
+        System.out.println("-------------------");
+        System.out.println(pessoa2);
+        System.out.println("-------------------");
+        
 //    }
 //    
 //    public static void imprimirMensagem(String par1){
