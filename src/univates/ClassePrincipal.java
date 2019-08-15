@@ -91,12 +91,14 @@ public class ClassePrincipal {
         pessoa1.setEndereco("Lajeado");
         pessoa1.setTelefone("190");
         pessoa1.setValorConta(500);
+        pessoa1.setChequeEspecial(200);
 
         pessoa2.setCodigo(2);
         pessoa2.setNome("Mario");
         pessoa2.setEndereco("Taquari");
         pessoa2.setTelefone("181");
         pessoa2.setValorConta(1000);
+        pessoa2.setChequeEspecial(100);
                 
         System.out.println("Saldo Inicial:");
         System.out.println(pessoa1);
@@ -104,7 +106,7 @@ public class ClassePrincipal {
         System.out.println(pessoa2);
         System.out.println("-------------------");
         
-        double valorTransferencia = 100;
+        double valorTransferencia = 701;
         System.out.println("Valor da Transferência: R$ " + valorTransferencia);
         
         if(pessoa1.credito(valorTransferencia) == true){

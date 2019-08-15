@@ -15,7 +15,8 @@ public class Pessoa {
     private String endereco;
     private String telefone;
     private double valorConta;
-    private String campoNovo;
+    private double chequeEspecial;
+   
 
     public int getCodigo() {
         return codigo;
@@ -57,16 +58,19 @@ public class Pessoa {
         this.valorConta = valorConta;
     }
 
-    public String getCampoNovo() {
-        return campoNovo;
+    public double getChequeEspecial() {
+        return chequeEspecial;
     }
 
-    public void setCampoNovo(String campoNovo) {
-        this.campoNovo = campoNovo;
+    public void setChequeEspecial(double chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
     }
+
+    
     
    public boolean credito(double valorTransferencia){
-        if(valorTransferencia <= this.valorConta){
+       //testar junto com cheque especial para calcular com o limite junto
+        if(valorTransferencia <= (this.valorConta + this.chequeEspecial)){
             this.valorConta -= valorTransferencia;
             System.out.println("Transferência realizada.");
             return true;
@@ -82,7 +86,7 @@ public class Pessoa {
     
     @Override
     public String toString(){
-        return ("\n nome: " + this.nome + "\n valor da conta: " + this.valorConta);  
+        return ("\n nome: " + this.nome + "\n valor da conta: " + this.valorConta + "\n limite: " + this.chequeEspecial);  
     }
     
     
