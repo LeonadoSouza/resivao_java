@@ -1,12 +1,24 @@
 package univates;
 
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /*
 autor: Jonas Dhein
 */
 
 public class Funcoes {
+    
+    
+    public static void mostrarMensagem(String mensagem){
+        try{
+            JOptionPane.showMessageDialog(null, mensagem);
+            
+        }catch(Exception ex){
+            
+        }
+    }
+    
     
     //método que soma 2 números
     /*
@@ -74,6 +86,18 @@ public class Funcoes {
         resultado = resultado.substring(0, resultado.length() - 1);
         return resultado;
     }
-   
+    public static boolean validarNumero(String numero){
+        try{
+            if(numero.matches("[0-9].*")){
+                return true;
+            }else{
+                return false;
+            }
+            
+            
+        }catch(Exception ex){
+            return false;
+        }
+    }
     
 }
