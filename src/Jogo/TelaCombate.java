@@ -7,7 +7,8 @@ package Jogo;
 
 import java.util.Random;
 import javax.swing.JOptionPane;
-import java.util.ArrayList;
+
+
 
 /**
  *
@@ -17,13 +18,17 @@ public class TelaCombate extends javax.swing.JFrame {
 
    Personagem personagem;
    Inimigo inimigo;
+   String[] inimigos = {"Godzilla", "Coringa", "Scar", "Darth Vader"};
+   int[] vidas ={200, 300, 500, 700};
+   int[] ataques = {6,10,15,20};
+   int countInimigo = 0;
    Random gerador = new Random();
    
     public TelaCombate() {
         initComponents();
         personagem = new Personagem();
         personagem.setNome("Excalibur");
-        personagem.setVida(100);
+        personagem.setVida(300);
         personagem.setAtaque(15);
        
         
@@ -47,15 +52,19 @@ public class TelaCombate extends javax.swing.JFrame {
     private void gerarInimigo(){
         
         inimigo = new Inimigo();
-        ArrayList<String> nomeI = new ArrayList<String>();
-        nomeI.add
-        inimigo.setNome("Godzilla");
-        inimigo.setVida(gerador.nextInt(1000) + 100);
-        inimigo.setAtaque(200);
+        inimigo.setNome(inimigos[countInimigo]);
+        inimigo.setVida(vidas[countInimigo]);
+        inimigo.setAtaque(ataques[countInimigo]);
+        if(countInimigo < inimigos.length){
+            countInimigo+=1;
+        }else{
+            countInimigo = 0;
+        }
     }
-
+        
    
    
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -79,45 +88,51 @@ public class TelaCombate extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         btnAtacar = new javax.swing.JButton();
+        lblPersona = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        lblNumAtk = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        lblDado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNomeP.setText("jLabel1");
-        getContentPane().add(lblNomeP, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 11, -1, -1));
+        getContentPane().add(lblNomeP, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, -1));
 
         lblVidaP.setText("jLabel2");
-        getContentPane().add(lblVidaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 31, -1, -1));
+        getContentPane().add(lblVidaP, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         lblAtaqueP.setText("jLabel3");
         getContentPane().add(lblAtaqueP, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 51, -1, -1));
 
         jLabel1.setText("Nome:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 11, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel2.setText("Vida:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 31, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel3.setText("Ataque:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 51, -1, -1));
 
         lblNomeI.setText("jLabel4");
-        getContentPane().add(lblNomeI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 11, -1, -1));
+        getContentPane().add(lblNomeI, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         lblVidaI.setText("jLabel4");
-        getContentPane().add(lblVidaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 31, -1, -1));
+        getContentPane().add(lblVidaI, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
 
         lblAtaqueI.setText("jLabel4");
-        getContentPane().add(lblAtaqueI, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 51, -1, -1));
+        getContentPane().add(lblAtaqueI, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
 
         jLabel4.setText("Ataque:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(235, 51, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
 
         jLabel5.setText("Vida:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 31, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, -1, -1));
 
         jLabel6.setText("Nome:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 11, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
         btnAtacar.setText("Atacar");
         btnAtacar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,31 +140,102 @@ public class TelaCombate extends javax.swing.JFrame {
                 btnAtacarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtacar, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+        getContentPane().add(btnAtacar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
-        setSize(new java.awt.Dimension(400, 285));
+        lblPersona.setText("persona");
+        getContentPane().add(lblPersona, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 50, -1));
+
+        jLabel7.setText("atacou tirando");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+
+        lblNumAtk.setText("0");
+        getContentPane().add(lblNumAtk, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+
+        jLabel9.setText("pontos de vida");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 80, -1));
+
+        jLabel8.setText("Dado");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(144, 11, -1, -1));
+
+        lblDado.setText("0");
+        getContentPane().add(lblDado, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 20, -1));
+
+        setSize(new java.awt.Dimension(382, 223));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAtacarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtacarActionPerformed
         // TODO add your handling code here:
-        int x = gerador.nextInt(3) + 1;
-        if (x == 3){
-            inimigo.setVida(inimigo.getVida() - (personagem.getAtaque()*2));
-            exibirInimigo();
-            JOptionPane.showMessageDialog(null, "Ataque Critico");
-        }else if(x == 2){
-            inimigo.setVida(inimigo.getVida() - personagem.getAtaque());
-            exibirInimigo();
-        }else if(x == 1){
-            JOptionPane.showMessageDialog(null, "MISS");
-    }
-        if(inimigo.getVida() <= 0){
+        Atacar();
+        if(inimigo.getVida() <= 0){ //VERIFICA SE PRECISA GERAR OUTRO INIMIGO
+            JOptionPane.showMessageDialog(null, "Parabéns, você derrotou o inimigo");
             gerarInimigo();
-        
-    }
+        }else if(personagem.getVida() <=0){
+            JOptionPane.showMessageDialog(null, "GAME OVER, você foi derotado");
+            //System.exit(0);
+        }
+        exibirPersonagem();
+        exibirInimigo();
     }//GEN-LAST:event_btnAtacarActionPerformed
 
+    private void Atacar(){
+        int x = gerador.nextInt(20) + 1;
+        int ataque = personagem.getAtaque();
+        int atkIni = inimigo.getAtaque();
+        lblDado.setText("" + x);
+        
+        
+        if (x >= 20){
+            inimigo.setVida(inimigo.getVida() - (ataque*2));
+            lblPersona.setText(personagem.getNome());
+            lblNumAtk.setText(""+ataque*2);
+            JOptionPane.showMessageDialog(null, "CRITICO!");
+            personagem.setAtaque((int) (ataque*1.5));
+            exibirInimigo();
+        }else if(x >= 17 && x <= 19 ){       
+            inimigo.setVida(inimigo.getVida() - ataque);
+             lblPersona.setText(personagem.getNome());
+             lblNumAtk.setText(""+ataque);
+            personagem.setAtaque((int) (ataque*1.35));
+            exibirInimigo();
+        }else if(x >=14 && x <= 16){
+            inimigo.setVida(inimigo.getVida() - ataque);
+             lblPersona.setText(personagem.getNome());
+             lblNumAtk.setText(""+ataque);
+            personagem.setAtaque((int) (ataque*1.3));
+            exibirInimigo();
+        }else if (x >=11 && x <= 13){
+            personagem.setVida(personagem.getVida() - ataque);
+             lblPersona.setText(personagem.getNome());
+             lblNumAtk.setText(""+ataque);
+            personagem.setAtaque((int) (ataque*1.25));
+            exibirPersonagem();
+             }else if (x >=8 && x <= 10){
+            personagem.setVida(personagem.getVida() - ataque);
+             lblPersona.setText(personagem.getNome());
+             lblNumAtk.setText(""+ataque);
+            personagem.setAtaque((int) (ataque*1.2));                       
+            exibirPersonagem();
+            }else if (x >=5 && x <= 7){
+            personagem.setVida(personagem.getVida() - ataque);
+             lblPersona.setText(personagem.getNome());
+             lblNumAtk.setText(""+ataque);
+            personagem.setAtaque((int) (ataque*1.1));                       
+            exibirPersonagem();
+            }else if (x >=2 && x <= 4){
+            personagem.setVida(personagem.getVida() - atkIni );
+            lblPersona.setText(inimigo.getNome());
+            lblNumAtk.setText(""+atkIni);
+            personagem.setAtaque((int) (ataque/1.5));          
+            exibirPersonagem();
+        }else if (x == 1){
+            personagem.setVida(personagem.getVida() - (atkIni*2));
+            lblPersona.setText(inimigo.getNome());
+            lblNumAtk.setText(""+atkIni);
+            personagem.setAtaque((int) (ataque/2));
+            exibirPersonagem();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -193,10 +279,16 @@ public class TelaCombate extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel lblAtaqueI;
     private javax.swing.JLabel lblAtaqueP;
+    private javax.swing.JLabel lblDado;
     private javax.swing.JLabel lblNomeI;
     private javax.swing.JLabel lblNomeP;
+    private javax.swing.JLabel lblNumAtk;
+    private javax.swing.JLabel lblPersona;
     private javax.swing.JLabel lblVidaI;
     private javax.swing.JLabel lblVidaP;
     // End of variables declaration//GEN-END:variables
