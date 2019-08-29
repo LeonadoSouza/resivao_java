@@ -18,6 +18,7 @@ public class TelaCombate extends javax.swing.JFrame {
 
    Personagem personagem;
    Inimigo inimigo;
+   //nome dos inimigos
    String[] inimigos = {"Godzilla", "Coringa", "Scar", "Darth Vader"};
    int[] vidas ={200, 300, 500, 700};
    int[] ataques = {6,10,15,20};
